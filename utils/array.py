@@ -1,14 +1,14 @@
 """
 Module with utility functions for arrays
 """
-def scale(arr):
+def scale(array):
     """
     Scale values in x from [0..255] to [-1, 1]
-    :param arr: array to scale
+    :param array: array to scale
     :return: rescaled array (float values)
     """
-    arr = arr.astype('float32')
-    arr = arr / 255.0
-    arr = arr - 0.5
-    arr = arr * 2.0
-    return arr
+    array = array.astype('float32')
+    array = array / 255.0
+    array = array - 0.5
+    array = array * 2.0
+    return array

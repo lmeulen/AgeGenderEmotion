@@ -4,11 +4,12 @@ Module with utility functions for images
 import cv2
 import numpy as np
 
+
 def crop_bounding_box(full_image, extract_section, margin=.4, size=(64, 64)):
     """
-	Crop a section from the image, add margin tot specified size
+    Crop a section from the image, add margin tot specified size
     :param full_image: full image containing the section to extract
-    :param section: area to extract (x top left, y top left, width, height)
+    :param extract_section: area to extract (x top left, y top left, width, height)
     :param margin: add some margin to the section. Percentage of min(wifth, height)
     :param size: the result image resolution with be (width x height)
     :return: resized image in numpy array with shape (size x size x 3)
@@ -30,9 +31,9 @@ def crop_bounding_box(full_image, extract_section, margin=.4, size=(64, 64)):
     resized_img = np.array(resized_img)
     return resized_img, (x, y, w, h)
 
-	
+
 def draw_bounding_box_with_label(image, x, y, w, h, label):
-	size = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 2)[0]
-	cv2.rectangle(image, (x, y), (x + w, y + h), (255, 200, 0), 2)
-	cv2.rectangle(image, (x, y - size[1]), (x + size[0], y), (255, 0, 0), cv2.FILLED)
-	cv2.putText(image, label, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+    size = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 2)[0]
+    cv2.rectangle(image, (x, y), (x + w, y + h), (255, 200, 0), 2)
+    cv2.rectangle(image, (x, y - size[1]), (x + size[0], y), (255, 0, 0), cv2.FILLED)
+    cv2.putText(image, label, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
